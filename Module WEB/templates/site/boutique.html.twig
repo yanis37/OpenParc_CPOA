@@ -1,0 +1,296 @@
+{% extends 'base.html.twig' %}
+
+{% block head %}
+
+
+{% endblock head %}
+
+{% block body %}
+
+
+    <div class="title">
+    <div class="row justify-content-center">
+    <br><br>
+    <h1>Boutique</h1>
+    <br><br>
+    </div>
+    </div>
+    <h4>Choississez un type de billet : </h4>
+    <br>
+
+
+    <div class="container-fluid">
+
+            <ul class="nav nav-tabs" id="myTabContent" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#grand-public">Billet Grand Public</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#licencie">Billet Licencié</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#bjs">Billet Journée de la solidarité </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#tbm">Billet The Big Match</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#invitation">Invitation</a>
+                </li>
+            </ul>
+            <div id="tab-content" class="tab-content">
+
+                <div class="tab-pane fade active show" id="grand-public">
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6">
+                                <br> <br>
+                                <p>Le billet "Grand Public" vous permet d'assister aux matchs du court central ainsi qu'aux matchs des cours annexes. Il est valable pendant une journée.</p>
+
+                                <br><br>
+
+                                {{ form_start(form) }}
+
+                                <p>• Quel jour souhaitez-vous venir ?</p>
+
+                                {{ form_widget(form.day) }}
+
+                                <br><br>
+
+                                <p>• Choisissez une catégorie : </p>
+
+                                {{ form_widget(form.cat) }}
+
+                                <br><br>
+
+                                <p>• Choisissez un tarif : </p>
+
+                                {{ form_widget(form.tar) }}
+
+                                <br><br>
+
+                                {{ form_widget(form.submit) }}
+
+                                <br><br>
+
+                                {{ form_end(form) }}
+
+                                <br><br><br>
+
+                                {% if test==1 %}
+                                    <a href="{{ path('redirect') }}"><button class="btn btn-outline-primary"> Payer {{ price }} €</button> </a>
+                                {% endif %}
+
+                                <br><br>
+                            </div>
+
+                            <div class="col-2"><br><br><br>
+                                <img src="/assets/image/tab_prix.png"> </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                <div class="tab-pane fade" role="tabpanel" id="licencie">
+
+                    <div class="container">
+                        <br><br>
+                        <div class="row">
+                            <div class="col-6">
+                        <p>Le billet "Licencié" vous permet d'assister aux matchs des cours annexes et au match du court central. Le numéro de votre license de Tennis vous sera demandé si vous choisissez ce type de billet. Il est valable pendant une journée.</p>
+
+                        <br><br>
+
+                        {{ form_start(form2) }}
+
+                        <p>• Quel jour souhaitez-vous venir ?</p>
+
+                        {{ form_widget(form2.day2) }}
+
+                        <br><br>
+
+                        <p>• Choisissez une catégorie : </p>
+
+                        {{ form_widget(form2.cat2) }}
+
+                        <br><br>
+
+                        <p>• Choisissez un tarif : </p>
+
+                        {{ form_widget(form2.tar2) }}
+
+                        <br><br>
+                        <p>Saisir votre numéro de licencié :</p>{{ form_widget(form2.code2) }}
+
+                        <br><br>
+
+                        {{ form_widget(form2.submit2) }}
+
+                        <br><br>
+
+                        {{ form_end(form2) }}
+
+                        <br><br>
+                        {% if test1 == 1 %}
+                            {{ result }} <br> <p>Vous avez droit à {{ discount }} % de réduction !</p>
+
+                        {% endif %}
+
+                        {% if test1 == 0 %}
+                            {{ result }}
+                        {% endif %}
+                        <br>
+
+                        {% if test2 ==1 %}
+                            <a href="{{ path('redirect') }}"><button class="btn btn-outline-primary"> Payer {{ price }} €</button> </a>
+                        {% endif %}
+
+                        </div>
+                        <div class="col-2"><br><br><br>
+                            <img src="/assets/image/tab_prix.png"> </div>
+                        </div>
+
+                    </div>
+                    <br><br><br>
+
+
+                </div>
+
+                <div class="tab-pane fade" role="tabpanel" id="bjs">
+
+                    <div class="container">
+                        <br><br>
+                        <div class="row">
+                            <div class="col-6">
+                                <p>Le billet "Journée de la Solidarité" vous permet d'assister aux matchs des cours annexes et au match du court central. Un code promo sera demandé si vous choisissez ce type de billet. Il est valable pendant une journée.</p>
+
+                                <br><br>
+
+                                {{ form_start(form4) }}
+
+                                <p>• Quel jour souhaitez-vous venir ?</p>
+
+                                {{ form_widget(form4.day4) }}
+
+                                <br><br>
+
+                                <p>• Choisissez une catégorie : </p>
+
+                                {{ form_widget(form4.cat4) }}
+
+                                <br><br>
+
+                                <p>• Choisissez un tarif : </p>
+
+                                {{ form_widget(form4.tar4) }}
+
+                                <br><br>
+                                <p>Saisir le code promo :</p>{{ form_widget(form4.code4) }}
+
+                                <br><br>
+
+                                {{ form_widget(form4.submit4) }}
+
+                                <br><br>
+
+                                {{ form_end(form4) }}
+
+                                <br><br>
+                                {% if test3 == 1 %}
+                                    {{ result1 }} <br> <p>Vous avez droit à {{ discount3 }} % de réduction !</p>
+                                {% endif %}
+                                {% if test3 == 0 %}
+                                    {{ result1 }}
+                                {% endif %}
+                                <br>
+
+                                {% if test4 ==1 %}
+                                    <a href="{{ path('redirect') }}"><button class="btn btn-outline-primary"> Payer {{ price }} €</button> </a>
+                                {% endif %}
+
+                            </div>
+                            <div class="col-2"><br><br><br>
+                                <img src="/assets/image/tab_prix.png"> </div>
+                        </div>
+
+                    </div>
+                    <br><br><br>
+
+                </div>
+
+                <div class="tab-pane fade" role="tabpanel" id="tbm">
+
+                    <div class="container">
+                        <p>Le billet "The Big Match" vous permet d'aller voir l'une des 2 finales.</p>
+                    </div>
+
+                </div>
+
+                <div class="tab-pane fade" role="tabpanel" id="invitation">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-6">
+                                    <br> <br>
+                                    <p>Ces billets sont faits pour inviter quelqu'un, cette personne aura accès aux loges.</p>
+                                    <br><br>
+
+                                    {{ form_start(form5) }}
+
+                                    <p>• Selectionner un jour : </p>
+
+                                    {{ form_widget(form5.day5) }} <br>
+
+                                    <p><br>Nom de la personne que vous souhaitez inviter : </p>
+
+                                    {{ form_widget(form5.lastname5) }}
+
+                                    <p>Prénom de la personne que vous souhaitez inviter :</p>
+
+                                    {{ form_widget(form5.name5) }}
+                                    <br><br>
+                                    {{ form_widget(form5.submit5) }}
+
+                                    {{ form_end(form5) }}
+
+
+
+                                    <br><br><br>
+
+                                </div>
+
+                        </div>
+                    </div>
+                    </div>
+
+                </div>
+
+            </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+                localStorage.setItem('activeTab', $(e.target).attr('href'));
+            });
+            var activeTab = localStorage.getItem('activeTab');
+            if(activeTab){
+                $('#myTabContent a[href="' + activeTab + '"]').tab('show');
+            }
+        });
+    </script>
+
+
+
+
+{% endblock body %}
+

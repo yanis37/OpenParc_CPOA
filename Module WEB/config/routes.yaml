@@ -1,0 +1,32 @@
+#index:
+#    path: /site
+#    controller: App\Controller\DefaultController::index
+
+#home:
+#    path: /
+#    controller: App\Controller\DefaultController::home
+
+#boutique:
+#    path: /boutique
+#    controller: App\Controller\DefaultController::boutique
+
+#info:
+#    path: /informations
+#    controller: App\Controller\DefaultController::info
+
+#contact:
+#    path: /contact
+#    controller: App\Controller\DefaultController::contact
+
+#players:
+#    path: /joueurs
+#    controller: App\Controller\DefaultController::players
+
+#asso:
+#    path: /associations
+#    controller: App\Controller\DefaultController::asso
+
+
+#redirection:
+#    path: /redirect
+#    controller: App\Controller\DefaultController::redirection
